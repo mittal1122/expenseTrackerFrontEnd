@@ -21,6 +21,7 @@ jobs:
           # repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEMODEVOPS_34CDB }}'
           projectId: demodevops-34cdb
+          channelId: live
 
            
   
