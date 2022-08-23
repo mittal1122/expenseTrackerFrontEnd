@@ -1,8 +1,12 @@
 <p>signup works!</p>
 <h2 class="abc">Signup</h2>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+        FirstName: <input type="text" class="form-control" [(ngModel)]="firstName" /><br>
+        Email: <input type="text"  class="form-control" [(ngModel)]="email" /><br>
+        Password: <input type="text" class="form-control"  [(ngModel)]="password" /><br>
 
-FirstName: <input type="text"   [(ngModel)]="firstName" /><br>
-Email: <input type="text" [(ngModel)]="email" /><br>
-Password: <input type="text" [(ngModel)]="password" /><br>
-
-<button type="button" (click)="printData()" >Signup</button>
+        <button type="button" class="btn btn-success" (click)="signup()">Signup</button>
+    </div>
+</div>
