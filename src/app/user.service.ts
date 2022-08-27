@@ -17,15 +17,15 @@ export class UserService {
     // headers = headers.append('authToken','iUIxh7StLCw8FZ9s');
     // console.log(headers.get("authToken"));
 
-    return this.http.get(environment.url+"admin/role")
+    return this.http.get("http://localhost:9997/admin/role")
   }
 
   addRole(role:any): Observable<any> {
     
-    return this.http.post(environment.url+"admin/role",role)
+    return this.http.post("http://localhost:9997/admin/role",role)
   }
 
-  deleteRole(roleId:any):Observable<any>{
-    return this.http.delete(environment.url)
-  }
+  // deleteRole(roleId:any):Observable<any>{
+  //   return this.http.delete(environment.url)
+  // }
 } 
