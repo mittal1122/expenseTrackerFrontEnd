@@ -27,7 +27,7 @@ export class SignupComponent {
     let user = {
       "firstName":this.firstName,
       "email":this.email,
-      "passworrd":this.password,
+      "password":this.password,
       "gender":"male"
 
     }
