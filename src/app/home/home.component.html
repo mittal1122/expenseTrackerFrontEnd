@@ -3,7 +3,7 @@
     </div>
     <div class="col-md-4">
 
-        <a routerLink="/addrole" class="btn">Add Role</a>
+        <a routerLink="/user/addrole" style=" width:100px; background:#e2e2e2"  class="btn btn-outline-primary">Add Role</a>
     </div>
 </div>
 <div class="row">
@@ -19,9 +19,16 @@
             <tr *ngFor="let r of roles">
                 <td>{{r.roleId}}</td>
                 <td>{{r.roleName}}</td>
-                <td><button  class="btn btn-outline-danger" (click)="deleteRole(r.roleId)">Delete</button></td>
+                <td><button  class="btn btn-outline-danger" (click)="deleteRole(r.roleId)">Delete</button>
+                   &nbsp; <button  class="btn btn-outline-success" (mouseover)='viewRole(r.roleId)'  style=" width:100px; background:#e2e2e2" >View</button>
+                   &nbsp; <a routerLink="/user/viewrole/{{r.roleId}}" class="btn btn-outline-primary" >Update</a>
+                   &nbsp; </td>
             </tr>
         </table>
 
     </div>
 </div>
+
+<p-dialog header="Role Name"  [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width:'50vw'}" [(visible)]="display">
+    {{roleName}}
+</p-dialog>

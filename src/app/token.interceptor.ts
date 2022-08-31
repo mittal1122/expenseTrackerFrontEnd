@@ -7,13 +7,14 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthTokenService } from './Service/auth-token.service';
 
 //filter -> request -> filter -> controller
 //api -> request -> interceptor -> server
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private authTokenService:AuthTokenService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
    
@@ -54,7 +55,9 @@ export class TokenInterceptor implements HttpInterceptor {
 
     // }
 
-    let authToken = "wCa4lki00TDGoOPZ"
+    // let authToken = localStorage.getItem("authToken") as string
+    let authToken = this.authTokenService.authToken as string
+    
     // let headers = new HttpHeaders({"authToken":authToken})
     console.log("auth Token interceptor.....")
     return next.handle(request.clone({ setHeaders: { authToken } })); // go forward with header  

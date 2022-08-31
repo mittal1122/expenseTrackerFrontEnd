@@ -12,13 +12,13 @@ export class AddRoleComponent  {
 
   constructor(private userService:UserService, private router:Router, private tostr:ToastrService) { }
 
-  roleName=""
+  roleName= ""
 
 
   addRole(){
     let role = {"roleName":this.roleName}
     this.userService.addRole(role).subscribe(resp =>{
-    this.router.navigateByUrl("/home")
+    this.router.navigateByUrl("/user/home")
     this.tostr.success("Role add Successfuly")
     },err => {
 

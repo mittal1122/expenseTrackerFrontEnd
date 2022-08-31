@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthTokenService } from '../Service/auth-token.service';
 import { SessionService } from '../session.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   email = ""
   password = ""
 
-  constructor(private sessionService:SessionService, private tostr:ToastrService, private router:Router) { }
+  constructor(private sessionService:SessionService, private tostr:ToastrService, private router:Router, private authTokenService:AuthTokenService) { }
 
   ngOnInit(): void {
   }
@@ -25,9 +26,11 @@ export class LoginComponent implements OnInit {
       
       //json
       console.log("Login Response",resp.data.User);
+      localStorage.setItem("authToken",resp.data.User.authToken)
+      this.authTokenService.authToken = resp.data.User.authToken
       if(resp.data.User.role.roleName == "user"){
         this.tostr.success("Login Done")
-        this.router.navigateByUrl("/home")
+        this.router.navigateByUrl("/user/home")
       }else if(resp.data.User.role.roleName == "admin"){
         this.tostr.success("Login Done")
         this.router.navigateByUrl("/dashboard")

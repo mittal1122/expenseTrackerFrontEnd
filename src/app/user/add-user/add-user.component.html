@@ -1,0 +1,21 @@
+<h2>Add User</h2>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form [formGroup]="userForm" (ngSubmit)="addUser()">
+            FirstName: <input type="text" class="form-control" formControlName="firstName" />
+            <span class="err" *ngIf="userForm.get('firstName')?.touched && !userForm.get('firstName')?.valid">Plese Enter FirstName</span>
+            <br>
+            Email: <input type="text" class="form-control" formControlName="email" />
+            <span class="err" *ngIf="userForm.get('email')?.touched && !userForm.get('email')?.valid">Plese Enter Email</span>
+            <br>
+            Password: <input type="text" class="form-control" formControlName="password" />
+            <span class="err" *ngIf="userForm.get('password')?.touched  && userForm.get('password')?.hasError('required')">Plese Enter Password</span>
+            <span class="err" *ngIf="userForm.get('password')?.touched  && userForm.get('password')?.hasError('minlength')">Password must be enter in 5 length</span>
+            <span class="err" *ngIf="userForm.get('password')?.touched  && userForm.get('password')?.hasError('strongPassword')">Please Enter Strong Password</span>
+            
+            <br>
+            <button type="submit" class="btn btn-success">Add user</button>
+        </form>
+    </div>
+</div>

@@ -1,11 +1,12 @@
-<h2 align="center"  class="abc upper">Signup</h2>
+<h2 align="center" class="abc upper">Signup</h2>
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
         FirstName: <input type="text" class="form-control" [(ngModel)]="firstName" /><br>
-        Email: <input type="text"  class="form-control" [(ngModel)]="email" /><br>
-        Password: <input type="text" class="form-control"  [(ngModel)]="password" /><br>
+        Email: <input type="text" class="form-control" [(ngModel)]="email" /><br>
+        Password: <input type="text" class="form-control" [(ngModel)]="password" /><br>
 
         <button type="button" class="btn btn-success" (click)="signup()">Signup</button>
+        <a class="nav-link " routerLink="/login" tabindex="-1">Login</a>
     </div>
 </div>
